@@ -60,12 +60,58 @@
         </div>
     </nav>
     <main>
-        <div class="d-grid">
-            <div>
-                <div></div>
-                <div></div>
+        <div class="d-grid" style="grid-template-columns: 30% 70%;width: 90%;margin: 10% 0%;">
+            <div class="d-grid" style="grid-template-rows: auto auto;">
+                <div>
+                    <div class="d-flex align-items-center column-gap-3">
+                        <div style="background-color: #FACD02;border-radius: 50%;width: 10%;">
+                            <i class="bi bi-telephone h1" style="color: white; margin: 10%;"></i>
+                        </div>
+
+                        <span class="fs-3">Appelez-nous</span>
+                    </div>
+                    <div class="d-grid">
+                        <span>Disponible de 9h à 12h, et de 14h à 18
+                            du Lundi au Samedi</span>
+                        <span>Téléphone:<a href="tel:+262283700">0262 28 37 00</a></span>
+                    </div>
+
+                </div>
+                <div>
+                    <div class="d-flex align-items-center column-gap-3">
+                        <div style="background-color: #FACD02;border-radius: 50%;width: 10%;">
+                            <i class="bi bi-envelope h1"
+                                style="background-color: #FACD02;border-radius: 50%;color: white; margin: 10%;"></i>
+                        </div>
+                        <span class="fs-3">Ecrivez-nous</span>
+                    </div>
+                    <div class="d-grid">
+                        <span>Remplissez ce formulaire et nous vous répondrons dès que possible</span>
+                        <span>Email:<a href="mailto:videodrive@gmail.com">videodrive@gmail.com</a></span>
+                    </div>
+                </div>
             </div>
-            <div></div>
+            <div id="formContact">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <input type="text" class="form-control" placeholder="Nom *" id="nom" required>
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Adresse mail *" id="mail" required>
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Téléphone" id="phone">
+                    </div>
+                </div>
+                <div>
+                    <textarea class="form-control" id="message" rows="8" placeholder="Message"></textarea>
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <button type="button" class="btn text-white d-flex justify-content-between"
+                        style="background-color: #FACD02;">Envoyer
+                        le message</button>
+                </div>
+            </div>
         </div>
     </main>
     <footer>

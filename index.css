@@ -49,3 +49,7 @@ body {
   margin: 0 25%;
   border: 1px solid black;
 }
+#formContact {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,3 +1,11 @@
+.btn {
+  --bs-btn-hover-color: white;
+  --bs-btn-active-color: white;
+}
+#searchOrder:hover {
+  --bs-btn-hover-color: black;
+  --bs-btn-active-color: black;
+}
 .carousel-item-next,
 .carousel-item-prev,
 .carousel-item.active {
@@ -52,4 +60,20 @@ body {
 #formContact {
   display: flex;
   flex-direction: column;
+}
+.wrapper {
+  max-width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.wrapper input {
+  padding-right: 2rem;
+  width: 100%;
+}
+
+.wrapper button {
+  height: 100%;
+  aspect-ratio: 1;
+  position: absolute;
 }

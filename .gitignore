@@ -1,3 +1,5 @@
 *.docx
 *.fig
 *.pdf
+node_modules
+videodrive_back

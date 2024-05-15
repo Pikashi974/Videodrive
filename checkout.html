@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://bootswatch.com/5/flatly/bootstrap.min.css" rel="stylesheet" />
-    <link href="../src/css/index.css" rel="stylesheet" />
+    <link href="./src/css/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/css/checkout.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Accueil Vidéodrive</title>
+    <title>Paiement Vidéodrive</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
             <img src="http://www.videodrive.fr/imgbas/logov.png" width="40" />
-            <a class="navbar-brand" href="../index">Videodrive</a>
+            <a class="navbar-brand" href="./index">Videodrive</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,21 +23,21 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link " href="../index">Accueil
+                        <a class="nav-link " href="./index">Accueil
                             <span class="visually-hidden">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../search?type=console">Consoles</a>
+                        <a class="nav-link" href="./search?type=console">Consoles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../search?type=jeu">Jeux</a>
+                        <a class="nav-link" href="./search?type=jeu">Jeux</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../contact">Contacter le magasin</a>
+                        <a class="nav-link" href="./contact">Contacter le magasin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../about">A propos</a>
+                        <a class="nav-link active" href="./about">A propos</a>
                     </li>
                 </ul>
                 <div class="wrapper">
@@ -48,10 +49,10 @@
                 </div>
                 <ul class="navbar-nav align-items-center" style="padding-right: 1%;">
                     <li class="nav-item">
-                        <a class="nav-link" href="../orders">Suivre une commande</a>
+                        <a class="nav-link" href="./orders">Suivre une commande</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../cart">
+                        <a class="nav-link" href="./cart">
                             <div class="icon-badge-container">
                                 <i class="bi bi-cart-fill h3"></i>
                                 <div class="icon-badge"></div>
@@ -63,9 +64,16 @@
         </div>
     </nav>
     <main>
-        <div class="alert alert-danger">
-            <strong>Désolé</strong>, ce produit n'existe pas on n'est plus disponible
-        </div>
+        <form id="payment-form">
+            <div id="payment-element">
+                <!--Stripe.js injects the Payment Element-->
+            </div>
+            <button id="submit">
+                <div class="spinner hidden" id="spinner"></div>
+                <span id="button-text">Pay now</span>
+            </button>
+            <div id="payment-message" class="hidden"></div>
+        </form>
     </main>
     <footer>
         <div id="listeFooter" class="text-light">
@@ -99,16 +107,16 @@
                     <h5>Liens rapides</h5>
                     <ul class="list-group">
                         <li class="list-group">
-                            <a class="nav-link" href="../search?type=console">Consoles</a>
+                            <a class="nav-link" href="./search?type=console">Consoles</a>
                         </li>
                         <li class="list-group">
-                            <a class="nav-link" href="../search?type=jeu">Jeux</a>
+                            <a class="nav-link" href="./search?type=jeu">Jeux</a>
                         </li>
                         <li class="list-group">
-                            <a class="nav-link" href="../contact">Contacter le magasin</a>
+                            <a class="nav-link" href="./contact">Contacter le magasin</a>
                         </li>
                         <li class="list-group">
-                            <a class="nav-link" href="../about">A propos</a>
+                            <a class="nav-link" href="./about">A propos</a>
                         </li>
                     </ul>
                 </div>
@@ -137,7 +145,8 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-<script src="../src/js/search.js"></script>
-<script src="../src/js/product.js"></script>
+<script src="./src/js/search.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="./src/js/checkout.js" defer></script>
 
 </html>

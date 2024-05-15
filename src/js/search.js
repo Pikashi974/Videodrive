@@ -5,6 +5,7 @@ document.querySelector("#search").addEventListener("click", () => {
   }
 });
 
+cartSize();
 /**
  *
  * @returns {JSON}
@@ -22,6 +23,21 @@ function cartSize() {
   document.querySelector(".icon-badge").innerText = cart.length;
   if (cart.length == 0) {
     document.querySelector(".icon-badge").classList.add("d-none");
+  } else {
+    document.querySelector(".icon-badge").classList.remove("d-none");
   }
 }
-cartSize();
+async function getProduct(idObj) {
+  let bodyContent = JSON.stringify({
+    query: idObj,
+  });
+
+  return await fetch("http://localhost:3000/produits/id", {
+    method: "POST",
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+    },
+    body: bodyContent,
+  }).then((res) => res.json());
+}

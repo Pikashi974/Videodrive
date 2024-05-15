@@ -1,5 +1,6 @@
 *.docx
 *.fig
 *.pdf
+*.exe
 node_modules
 videodrive_back

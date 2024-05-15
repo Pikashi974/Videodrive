@@ -6,7 +6,7 @@ let productCart;
 async function init() {
   cart = localStorage.cart ? JSON.parse(localStorage.cart) : [];
   if (idObj != "produit") {
-    product = await getProduct();
+    product = await getProduct(idObj);
     productCart = cart.filter((element) => element._id == product._id)[0];
     showProduct();
   }
@@ -16,37 +16,8 @@ init();
 function showProduct() {
   document.querySelector(
     "main"
-  ).innerHTML = `<div class="d-grid" style="grid-template-columns: 20% 30% 40%;width:90%">
-            <div id="imgList">
-                <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200"
-                    aria-label="Placeholder: Image cap" focusable="false" role="img"
-                    preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180"
-                    style="font-size:1.125rem;text-anchor:middle">
-                    <rect width="100%" height="100%" fill="#868e96"></rect>
-                    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200"
-                    aria-label="Placeholder: Image cap" focusable="false" role="img"
-                    preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180"
-                    style="font-size:1.125rem;text-anchor:middle">
-                    <rect width="100%" height="100%" fill="#868e96"></rect>
-                    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200"
-                    aria-label="Placeholder: Image cap" focusable="false" role="img"
-                    preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180"
-                    style="font-size:1.125rem;text-anchor:middle">
-                    <rect width="100%" height="100%" fill="#868e96"></rect>
-                    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200"
-                    aria-label="Placeholder: Image cap" focusable="false" role="img"
-                    preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180"
-                    style="font-size:1.125rem;text-anchor:middle">
-                    <rect width="100%" height="100%" fill="#868e96"></rect>
-                    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-                </svg>
-            </div>
+  ).innerHTML = `<div class="d-grid" style="grid-template-columns: 20% 30% 40%;width: 100%;margin: 5%;">
+            <div id="imgList"></div>
             <div id="imgShow">
                 <img src="${product.image}">
             </div>
@@ -58,7 +29,7 @@ function showProduct() {
                 <div class="d-inline-flex gap-5 w-100">
                     <div class="input-group mb-3">
                         <button class="btn colored" type="button" id="minus">-</button>
-                        <input type="number" readonly class="form-control" placeholder="Quantité" value="${
+                        <input type="number" readonly class="border" placeholder="Quantité" value="${
                           productCart ? productCart.qte : 1
                         }" min="1"
                             max="${product.qte}">
@@ -93,6 +64,7 @@ function showProduct() {
         name: product.name,
         price: product.price,
         qte: qteSelect.value,
+        support: product.support,
         type: product.type,
       });
     } else {
@@ -101,19 +73,6 @@ function showProduct() {
       cart[tabId].qte = qteSelect.value;
     }
     localStorage.cart = JSON.stringify(cart);
+    cartSize();
   });
-}
-async function getProduct() {
-  let bodyContent = JSON.stringify({
-    query: idObj,
-  });
-
-  return await fetch("http://localhost:3000/produits/id", {
-    method: "POST",
-    headers: {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-    },
-    body: bodyContent,
-  }).then((res) => res.json());
 }

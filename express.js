@@ -14,7 +14,12 @@ app.use(bodyParser.json());
 
 app.use("/src/js", express.static("src/js"));
 app.use("/src/css", express.static("src/css"));
-
+app.get("/product/:id", (req, res) => {
+  res.sendFile(path.resolve(`./product.html`));
+});
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve(`./index.html`));
+});
 app.get("/:id", (req, res) => {
   res.sendFile(path.resolve(`./${req.params.id}.html`));
 });

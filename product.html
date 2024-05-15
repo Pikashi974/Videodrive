@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://bootswatch.com/5/flatly/bootstrap.min.css" rel="stylesheet" />
-    <link href="./src/css/index.css" rel="stylesheet" />
+    <link href="../src/css/index.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Accueil Vidéodrive</title>
 </head>
@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
             <img src="http://www.videodrive.fr/imgbas/logov.png" width="40" />
-            <a class="navbar-brand" href="./index">Videodrive</a>
+            <a class="navbar-brand" href="../index">Videodrive</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,21 +22,21 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link " href="./index">Accueil
+                        <a class="nav-link " href="../index">Accueil
                             <span class="visually-hidden">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./search?type=console">Consoles</a>
+                        <a class="nav-link" href="../search?type=console">Consoles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./search?type=jeu">Jeux</a>
+                        <a class="nav-link" href="../search?type=jeu">Jeux</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="./contact">Contacter le magasin</a>
+                        <a class="nav-link" href="../contact">Contacter le magasin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./about">A propos</a>
+                        <a class="nav-link active" href="../about">A propos</a>
                     </li>
                 </ul>
                 <div class="wrapper">
@@ -48,10 +48,10 @@
                 </div>
                 <ul class="navbar-nav align-items-center" style="padding-right: 1%;">
                     <li class="nav-item">
-                        <a class="nav-link" href="./orders">Suivre une commande</a>
+                        <a class="nav-link" href="../orders">Suivre une commande</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./cart">
+                        <a class="nav-link" href="../cart">
                             <div class="icon-badge-container">
                                 <i class="bi bi-cart-fill h3"></i>
                                 <div class="icon-badge"></div>
@@ -63,57 +63,8 @@
         </div>
     </nav>
     <main>
-        <div class="d-grid" style="grid-template-columns: 30% 70%;width: 90%;margin: 10% 0%;">
-            <div class="d-grid" style="grid-template-rows: auto auto;">
-                <div>
-                    <div class="d-flex align-items-center column-gap-1">
-                        <div class="fs-3" style="background-color: #FACD02;border-radius: 50%;width: 4rem">
-                            <i class="bi bi-telephone h1" style="color: white; margin: 10%;"></i>
-                        </div>
-
-                        <span class="fs-3">Appelez-nous</span>
-                    </div>
-                    <div class="d-grid">
-                        <span>Disponible de 9h à 12h, et de 14h à 18
-                            du Lundi au Samedi</span>
-                        <span>Téléphone:<a href="tel:+262283700">0262 28 37 00</a></span>
-                    </div>
-
-                </div>
-                <div>
-                    <div class="d-flex align-items-center column-gap-3">
-                        <div class="fs-3" style="background-color: #FACD02;border-radius: 50%;width: 4rem">
-                            <i class="bi bi-envelope h1"
-                                style="background-color: #FACD02;border-radius: 50%;color: white; margin: 10%;"></i>
-                        </div>
-                        <span class="fs-3">Ecrivez-nous</span>
-                    </div>
-                    <div class="d-grid">
-                        <span>Remplissez ce formulaire et nous vous répondrons dès que possible</span>
-                        <span>Email:<a href="mailto:videodrive@gmail.com">videodrive@gmail.com</a></span>
-                    </div>
-                </div>
-            </div>
-            <div id="formContact">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <input type="text" class="form-control" placeholder="Nom *" id="nom" required>
-                    </div>
-                    <div>
-                        <input type="text" class="form-control" placeholder="Adresse mail *" id="mail" required>
-                    </div>
-                    <div>
-                        <input type="text" class="form-control" placeholder="Téléphone" id="phone">
-                    </div>
-                </div>
-                <div>
-                    <textarea class="form-control" id="message" rows="8" placeholder="Message"></textarea>
-                </div>
-                <div class="d-flex flex-row-reverse">
-                    <button type="button" class="btn colored d-flex justify-content-between">Envoyer
-                        le message</button>
-                </div>
-            </div>
+        <div class="alert alert-danger">
+            <strong>Désolé</strong>, ce produit n'existe plus on n'est plus disponible
         </div>
     </main>
     <footer>
@@ -148,16 +99,16 @@
                     <h5>Liens rapides</h5>
                     <ul class="list-group">
                         <li class="list-group">
-                            <a class="nav-link" href="./search?type=console">Consoles</a>
+                            <a class="nav-link" href="../search?type=console">Consoles</a>
                         </li>
                         <li class="list-group">
-                            <a class="nav-link" href="./search?type=jeu">Jeux</a>
+                            <a class="nav-link" href="../search?type=jeu">Jeux</a>
                         </li>
                         <li class="list-group">
-                            <a class="nav-link" href="./contact">Contacter le magasin</a>
+                            <a class="nav-link" href="../contact">Contacter le magasin</a>
                         </li>
                         <li class="list-group">
-                            <a class="nav-link" href="./about">A propos</a>
+                            <a class="nav-link" href="../about">A propos</a>
                         </li>
                     </ul>
                 </div>
@@ -186,6 +137,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-<script src="./src/js/search.js"></script>
+<script src="../src/js/search.js"></script>
+<script src="../src/js/product.js"></script>
 
 </html>

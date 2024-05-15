@@ -17,3 +17,11 @@ async function getProduits() {
     },
   }).then((res) => res.json());
 }
+function cartSize() {
+  let cart = localStorage.cart ? JSON.parse(localStorage.cart) : [];
+  document.querySelector(".icon-badge").innerText = cart.length;
+  if (cart.length == 0) {
+    document.querySelector(".icon-badge").classList.add("d-none");
+  }
+}
+cartSize();

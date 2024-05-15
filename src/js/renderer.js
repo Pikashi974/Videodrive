@@ -3,7 +3,9 @@ const listBest = document.querySelector("#listBest");
 async function init() {
   let data = await getProduits();
   data.slice(0, 3).forEach((object) => {
-    listBest.innerHTML += `<div class="card mb-3">
+    listBest.innerHTML += `<div class="card mb-3" style="cursor: pointer;" onclick="location.href='./product/${
+      object._id
+    }'">
                     <img src="${
                       object.image
                         ? object.image

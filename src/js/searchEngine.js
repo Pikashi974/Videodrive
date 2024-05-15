@@ -3,24 +3,23 @@ const pagination = document.querySelector("#pagination");
 const searchParams = new URLSearchParams(window.location.search);
 
 let res;
+let maxElement = 5;
 
 async function init() {
   let textSearch = searchParams.get("query");
+  let typeSearch = searchParams.get("type");
   console.log(textSearch);
   if (textSearch) {
     res = await searchList(textSearch);
+  } else if (typeSearch) {
+    res = await searchType(typeSearch);
+    document
+      .querySelector(`a[href='./search${location.search}']`)
+      .classList.add("active");
   } else {
     res = await getProduits();
   }
-  if (res.length != 0) {
-    let dataOutput = res.length > 5 ? res.slice(0, 5) : res;
-    createList(dataOutput);
-    makePagination(5);
-  } else {
-    listObject.innerHTML =
-      "<span>Désolé, aucun élément trouvé. Veuillez affiner votre recherche ou contacter l'équipe.</span>";
-    pagination.innerHTML = "";
-  }
+  generateListDisplay();
 }
 
 init();
@@ -39,10 +38,30 @@ async function searchList(params) {
     body: bodyContent,
   }).then((res) => res.json());
 }
+async function searchType(params) {
+  let bodyContent = JSON.stringify({
+    query: params,
+  });
+
+  return await fetch("http://localhost:3000/produits/type", {
+    method: "POST",
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+    },
+    body: bodyContent,
+  }).then((res) => res.json());
+}
+async function filterByType(texte) {
+  res = await searchType(texte);
+  generateListDisplay();
+}
 function createList(dataOutput) {
   listObject.innerHTML = "";
   dataOutput.forEach((object) => {
-    listObject.innerHTML += `<div class="card mb-3">
+    listObject.innerHTML += `<div class="card mb-3" style="cursor: pointer;" onclick="location.href='./product/${
+      object._id
+    }'">
                     <img src="${
                       object.image
                         ? object.image
@@ -137,4 +156,15 @@ function makePagination(max) {
         .dispatchEvent(new Event("click"));
     }
   });
+}
+function generateListDisplay() {
+  if (res.length != 0) {
+    let dataOutput = res.length > maxElement ? res.slice(0, maxElement) : res;
+    createList(dataOutput);
+    makePagination(maxElement);
+  } else {
+    listObject.innerHTML =
+      "<span>Désolé, aucun élément trouvé. Veuillez affiner votre recherche ou contacter l'équipe.</span>";
+    pagination.innerHTML = "";
+  }
 }

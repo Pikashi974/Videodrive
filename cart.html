@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
             <img src="http://www.videodrive.fr/imgbas/logov.png" width="40" />
-            <a class="navbar-brand" href="#">Videodrive</a>
+            <a class="navbar-brand" href="./index">Videodrive</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -27,10 +27,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Consoles</a>
+                        <a class="nav-link" href="./search?type=console">Consoles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Jeux</a>
+                        <a class="nav-link" href="./search?type=jeu">Jeux</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./contact">Contacter le magasin</a>
@@ -46,13 +46,16 @@
                         <i class="bi bi-search"></i>
                     </button>
                 </div>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav align-items-center" style="padding-right: 1%;">
                     <li class="nav-item">
                         <a class="nav-link" href="./orders">Suivre une commande</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./cart">
-                            <i class="bi bi-cart-fill"></i>
+                            <div class="icon-badge-container">
+                                <i class="bi bi-cart-fill h3"></i>
+                                <div class="icon-badge"></div>
+                            </div>
                         </a>
                     </li>
                 </ul>
@@ -80,9 +83,9 @@
                 </tbody>
             </table>
             <div class="d-flex flex-row justify-content-sm-between">
-                <button type="button" class="btn btn-outline-primary" onclick="location.href='./index.html'">Retourner à
+                <button type="button" class="btn btn-outline-primary" onclick="location.href='./index'">Retourner à
                     l'accueil</button>
-                <button type="button" class="btn btn-outline-primary">Vider le panier</button>
+                <button type="button" class="btn btn-outline-primary" id="emptyCart">Vider le panier</button>
             </div>
             <div id="summaryCart">
                 <ul class="list-group">
@@ -95,7 +98,7 @@
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <span>Frais Livraison</span>
-                        <span id="shippingTotal">2</span>
+                        <span id="shippingTotal">0</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <span>Total</span>
@@ -139,10 +142,10 @@
                     <h5>Liens rapides</h5>
                     <ul class="list-group">
                         <li class="list-group">
-                            <a class="nav-link" href="#">Consoles</a>
+                            <a class="nav-link" href="./search?type=console">Consoles</a>
                         </li>
                         <li class="list-group">
-                            <a class="nav-link" href="#">Jeux</a>
+                            <a class="nav-link" href="./search?type=jeu">Jeux</a>
                         </li>
                         <li class="list-group">
                             <a class="nav-link" href="./contact">Contacter le magasin</a>
@@ -178,5 +181,6 @@
     crossorigin="anonymous"></script>
 
 <script src="./src/js/search.js"></script>
+<script src="./src/js/cart.js"></script>
 
 </html>

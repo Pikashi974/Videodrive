@@ -49,8 +49,9 @@ main {
   grid-template-columns: min-content min-content min-content;
 }
 #listObject {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  /* display: grid;
+  grid-template-columns: auto auto auto auto auto; */
+  display: flex;
 }
 body {
   min-height: 100vh;

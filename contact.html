@@ -90,7 +90,7 @@
                     </div>
                     <div class="d-grid">
                         <span>Remplissez ce formulaire et nous vous répondrons dès que possible</span>
-                        <span>Email:<a href="mailto:videodrive@gmail.com">videodrive@gmail.com</a></span>
+                        <span>Email:<a href="mailto:yann@videodrive.fr">yann@videodrive.fr</a></span>
                     </div>
                 </div>
             </div>
@@ -98,20 +98,28 @@
                 <div class="d-flex justify-content-between">
                     <div>
                         <input type="text" class="form-control" placeholder="Nom *" id="nom" required>
+                        <div class="invalid-feedback">Nom obligatoire</div>
                     </div>
                     <div>
-                        <input type="text" class="form-control" placeholder="Adresse mail *" id="mail" required>
+                        <input type="email" class="form-control" placeholder="Adresse mail *" id="mail" required>
+                        <div class="invalid-feedback">Mail invalide</div>
                     </div>
                     <div>
-                        <input type="text" class="form-control" placeholder="Téléphone" id="phone">
+                        <input type="tel" class="form-control" placeholder="Téléphone" id="phone">
                     </div>
                 </div>
                 <div>
-                    <textarea class="form-control" id="message" rows="8" placeholder="Message"></textarea>
+                    <textarea class="form-control" id="message" rows="8" placeholder="Message *"></textarea>
                 </div>
                 <div class="d-flex flex-row-reverse">
-                    <button type="button" class="btn colored d-flex justify-content-between">Envoyer
-                        le message</button>
+                    <button type="button" class="btn colored d-flex justify-content-between align-items-center"
+                        id="sendMessage">
+                        <span>Envoyer le message</span>
+                        <span class="spinner-border spinner-border-sm d-none" aria-hidden="true"></span>
+                    </button>
+                    <div class="invalid-feedback">Une erreur est survenue lors de l'envoi du message. Reessayez
+                        ultèrieurement!</div>
+                    <div class="valid-feedback">Message envoyé</div>
                 </div>
             </div>
         </div>
@@ -137,7 +145,7 @@
                             <p>Adresse: 3 Rue De La Clinique, Saint-Denis 97490, La Réunion</p>
                         </li>
                         <li class="list-group">
-                            <a href="mailto:videodrive@gmail.com">videodrive@gmail.com</a>
+                            <a href="mailto:yann@videodrive.fr">yann@videodrive.fr</a>
                         </li>
                         <li class="list-group">
                             <a href="tel:+262283700">0262 28 37 00</a>
@@ -164,18 +172,16 @@
                 <div>
                     <h5>Suivez-nous</h5>
                     <div>
-                        <a href="#">
+                        <a href="https://www.facebook.com/VIDEODRIVE974/" target="_blank">
                             <i class="bi bi-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://twitter.com/videodrive974" target="_blank">
                             <i class="bi bi-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://instagram.com/videodrive974" target="_blank">
                             <i class="bi bi-instagram"></i>
                         </a>
-                        <a href="#">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -187,5 +193,6 @@
     crossorigin="anonymous"></script>
 
 <script src="./src/js/search.js"></script>
+<script src="./src/js/contact.js"></script>
 
 </html>

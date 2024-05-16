@@ -20,4 +20,4 @@ function createWindow() {
   win.loadURL("http://localhost:8000/index");
 }
 
-app.whenReady().then(createWindow);
+app.whenReady(); //.then(createWindow);

@@ -24,34 +24,6 @@ async function init() {
 
 init();
 
-async function searchList(params) {
-  let bodyContent = JSON.stringify({
-    query: params,
-  });
-
-  return await fetch("http://localhost:3000/produits", {
-    method: "POST",
-    headers: {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-    },
-    body: bodyContent,
-  }).then((res) => res.json());
-}
-async function searchType(params) {
-  let bodyContent = JSON.stringify({
-    query: params,
-  });
-
-  return await fetch("http://localhost:3000/produits/type", {
-    method: "POST",
-    headers: {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-    },
-    body: bodyContent,
-  }).then((res) => res.json());
-}
 async function filterByType(texte) {
   res = await searchType(texte);
   generateListDisplay();
@@ -59,21 +31,23 @@ async function filterByType(texte) {
 function createList(dataOutput) {
   listObject.innerHTML = "";
   dataOutput.forEach((object) => {
-    listObject.innerHTML += `<div class="card mb-3" style="cursor: pointer;" onclick="location.href='./product/${
-      object._id
-    }'">
+    listObject.innerHTML += `<div class="card mb-3" style="cursor: pointer;width: min-content">
+                  <a href='./product/${object._id}'>
                     <img src="${
                       object.image
                         ? object.image
                         : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png"
                     }" />
                     <div class="card-body">
-                        <p>${object.name}</p>
+                        <p style="width: fit-content;">${object.name}</p>
                         ${
-                          object.type == "jeu" ? `<p>${object.support}</p>` : ""
+                          object.type == "jeu"
+                            ? `<p style="width: fit-content;">${object.support}</p>`
+                            : ""
                         }
-                        <p>${object.price} €</p>
+                        <p style="width: fit-content;">${object.price} €</p>
                     </div>
+                    </a>
                 </div>`;
   });
 }

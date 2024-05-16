@@ -4,9 +4,6 @@ let bodyCart = document.querySelector("tbody");
 let cart = localStorage.cart ? JSON.parse(localStorage.cart) : [];
 
 function init() {
-  if (cart.length == 0) {
-    document.querySelector("#summaryCart").remove();
-  }
   displayCartElements();
 }
 init();
@@ -22,8 +19,11 @@ function displayCartElements() {
   bodyCart.innerHTML = "";
   if (cart.length == 0) {
     bodyCart.innerHTML = `<tr class="table">
-        <th scope="row" colspan="4" style="text-align: center;">Panier vide</th>
+        <th scope="row" colspan="5" style="text-align: center;">Panier vide</th>
     </tr>`;
+    if (cart.length == 0) {
+      document.querySelector("#summaryCart").remove();
+    }
   } else {
     cart.forEach((object, index) => {
       bodyCart.innerHTML += `<tr class="table" position="${index}">
@@ -35,6 +35,7 @@ function displayCartElements() {
         object.qte
       }"></td>
         <td><span id="total${index}">${object.qte * object.price}</span> €</td>
+        <td><button type="button" class="btn btn-danger" onclick="deleteFromCart(${index});">Retirer</button></td>
     </tr>`;
     });
     document
@@ -60,4 +61,15 @@ function calcCartTotal() {
     cart
       .map((element) => element.qte * element.price)
       .reduce((a, b) => a + b, 0) + " €";
+}
+/**
+ *
+ * @param {Number} id
+ */
+function deleteFromCart(id) {
+  if (window.confirm("Etes-vous sure de retirer ce produit?") == true) {
+    cart.splice(id, 1);
+    localStorage.cart = JSON.stringify(cart);
+    displayCartElements();
+  }
 }

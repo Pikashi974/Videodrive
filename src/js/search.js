@@ -41,3 +41,31 @@ async function getProduct(idObj) {
     body: bodyContent,
   }).then((res) => res.json());
 }
+async function searchList(params) {
+  let bodyContent = JSON.stringify({
+    query: params,
+  });
+
+  return await fetch("http://localhost:3000/produits", {
+    method: "POST",
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+    },
+    body: bodyContent,
+  }).then((res) => res.json());
+}
+async function searchType(params) {
+  let bodyContent = JSON.stringify({
+    query: params,
+  });
+
+  return await fetch("http://localhost:3000/produits/type", {
+    method: "POST",
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+    },
+    body: bodyContent,
+  }).then((res) => res.json());
+}

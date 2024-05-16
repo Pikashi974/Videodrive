@@ -4,7 +4,37 @@ document.querySelector("#search").addEventListener("click", () => {
     location.href = "./search?query=" + search.value;
   }
 });
+document
+  .querySelector("#sendNewsletter")
+  .addEventListener("click", async (e) => {
+    let search = document.querySelector(
+      `input[aria-describedby="sendNewsletter"]`
+    );
+    if (search.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
+      search.classList.add("is-valid");
+      search.classList.remove("is-invalid");
 
+      let bodyContent = JSON.stringify({
+        mail: search.value,
+      });
+      let res = await fetch("http://localhost:3000/newsletter", {
+        method: "POST",
+        headers: {
+          Accept: "*/*",
+          "Content-Type": "application/json",
+        },
+        body: bodyContent,
+      }).then((res) => res.json());
+      if (res.error) {
+        alert(res.error);
+        search.classList.remove("is-valid");
+        search.classList.add("is-invalid");
+      }
+    } else {
+      search.classList.remove("is-valid");
+      search.classList.add("is-invalid");
+    }
+  });
 cartSize();
 /**
  *
